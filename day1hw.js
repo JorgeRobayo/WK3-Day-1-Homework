@@ -182,33 +182,33 @@
 //For example, stringsLongerThan(['say', 'hello', 'in', 'the', 'morning'], 3);would return ["hello", "morning"].
 
 //=======ATTEMPT 1=========
-    // function stringsLongerThan(array, number){
-    // array.forEach(element => {
-    //     if (element.length === number.length)
-    //         return element;
-    //     else return `Not long enough`
-    // });
+// function stringsLongerThan(array, number){
+// array.forEach(element => {
+//     if (element.length === number.length)
+//         return element;
+//     else return `Not long enough`
+// });
 
-    //}
+//}
 
 //=======ATTEMPT 2=========
 // function stringsLongerThan(array, number){
-    // for (let string of array) {
-    //     if (string.lenght > lenght)
-    //         return string
-    //     else (string.lenght < lenght)
-    //         return "string exeeds lenght provided"
-    // }
+// for (let string of array) {
+//     if (string.lenght > lenght)
+//         return string
+//     else (string.lenght < lenght)
+//         return "string exeeds lenght provided"
+// }
 //}
 
 //=======ATTEMPT 3=========
 // function stringsLongerThan(array, number){
-    // for (let string of array) {
-    //     if (string.lenght > lenght)
-    //         return string
-    //     else (string.lenght < lenght)
-    //         return "string exeeds lenght provided"
-    // }
+// for (let string of array) {
+//     if (string.lenght > lenght)
+//         return string
+//     else (string.lenght < lenght)
+//         return "string exeeds lenght provided"
+// }
 //}
 
 //=======ATTEMPT 4=========
@@ -238,20 +238,31 @@
 function stringsLongerThan(array, number) { //changed second parameter from length to numvbver to not get confused
 
     const result = [] //the strings longer than the number will be stored in this empty array (I think)
-
+    const notLongEnough = []//this will store the strings shorter than the number
+   
     //this for of loop will iterate over every string in the array
     //annd will check which array is longer than the number provided
 
-    for (let string of array){
-        if (string.length > number){
+    for (let string of array) {
+        if (string.length > number) {
             result.push(string)
             //this says: if the strings of the array provided are longer than the number provided,
             //add the string to the empty array aka "result" 
         }
+        else {
+            (string.length <= number)
+            notLongEnough.push(string)
+            //this says: if the strings are equal or shorter than the number,
+            //add the string to the empty array notLongEnough.
+        }
     }
-    return `These strings are longer than the number provided: ${result}. Don't forget to tip`
-    
+    return `These strings are longer than the number provided: ${result}. 
+
+And these strings are not long enough: ${notLongEnough}.
+
+Don't forget to tip`
+
 }
 
-console.log(stringsLongerThan(["hi", "hello", "vainilla", "chocolate", "o"], 5))
+console.log(stringsLongerThan(["hi ", "hello ", "vainilla ", "chocolate ", "o "], 5))
 
